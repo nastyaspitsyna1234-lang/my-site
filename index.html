@@ -14,8 +14,8 @@
             justify-content: center;
             min-height: 100vh;
             margin: 0;
-            background-color: #f0f0f0; /* Початковий сірий фон */
-            transition: background-color 0.8s ease; /* Плавна зміна фону */
+            background-color: #e0ffc0; /* Світло-зелений фон для першого екрану */
+            transition: background-color 0.8s ease;
             text-align: center;
         }
 
@@ -37,30 +37,25 @@
         .options button {
             padding: 10px 20px;
             margin: 5px;
-            border: none;
+            border: 1px solid #ccc; /* Легка рамка */
             border-radius: 5px;
             cursor: pointer;
             font-size: 1em;
             transition: background-color 0.3s;
+            background-color: white; /* Білі кнопки для всіх питань */
+            color: black;
         }
 
         .options button:hover {
-            opacity: 0.8;
-        }
-
-        #mood-options button {
-            background-color: #a4e5ee; /* Блакитний для настрою */
-        }
-
-        #date-options button {
-            background-color: #ff99e6; /* Рожевий для зустрічі */
+            background-color: #f0f0f0; /* Легкий ефект при наведенні */
         }
     </style>
 </head>
 <body>
+
     <div class="container">
         <div id="question1">
-            <p class="question">Привіт, сонечко! Як твій настрій сьогодні?)</p>
+            <p class="question">Привіт, сонечко! Як твій настрій сьогодні?) ☀️</p>
             <div id="mood-options" class="options">
                 <button onclick="showQuestion2()">намана</button>
                 <button onclick="showQuestion2()">нинаю</button>
@@ -71,8 +66,15 @@
         <div id="question2" style="display: none;">
             <p class="question">Чи хотіли б ви сьогодні о 15:00 зустрітись за адресою Матроса кішки 40 для перегляду нашого улюбленого серіалу, під стаканчик прохолодної кока-коли та піцулечку пепероні?</p>
             <div id="date-options" class="options">
-                <button onclick="handleResponse('yes')">так</button>
-                <button onclick="handleResponse('no')">ні:(</button>
+                <button onclick="showQuestion3()">так</button>
+                <button onclick="handleFinalResponse('no')">ні:(</button>
+            </div>
+        </div>
+        
+        <div id="question3" style="display: none;">
+            <p class="question">Я тебе люблю 🤭</p>
+            <div id="love-options" class="options">
+                <button onclick="handleFinalResponse('yes')">😛😛😛😛</button>
             </div>
         </div>
 
