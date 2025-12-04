@@ -35,7 +35,7 @@ function handleFinalResponse(response) {
     if (response === 'yes') {
         // Якщо позитивний фінал
         body.style.backgroundColor = '#ffc0cb'; // Рожевий фон
-        finalEmoji.textContent = '❤️'; 
+        finalEmoji.textContent = '🫂'; 
         finalEmoji.style.color = '#e30022'; 
         
         // ВІДОБРАЖЕННЯ ФОТО: ТЕПЕР З РОЗШИРЕННЯМ .HEIC
@@ -45,7 +45,7 @@ function handleFinalResponse(response) {
     } else {
         // Якщо негативний фінал
         body.style.backgroundColor = '#000000'; // Чорний фон
-        finalEmoji.textContent = '💔'; 
+        finalEmoji.textContent = '😓'; 
         finalEmoji.style.color = 'white'; 
         // Фото не відображається
     }
