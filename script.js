@@ -3,7 +3,7 @@ const body = document.body;
 const container = document.querySelector('.container');
 const question1Div = document.getElementById('question1');
 const question2Div = document.getElementById('question2');
-const question3Div = document.getElementById('question3'); // НОВЕ посилання
+const question3Div = document.getElementById('question3');
 const resultDiv = document.getElementById('result');
 const finalEmoji = document.getElementById('final-emoji');
 
@@ -13,10 +13,10 @@ function showQuestion2() {
     question2Div.style.display = 'block'; 
 }
 
-// НОВА Функція для переходу до третього запитання
+// Функція для переходу до третього запитання
 function showQuestion3() {
-    question2Div.style.display = 'none'; // Приховуємо друге запитання
-    question3Div.style.display = 'block'; // Показуємо третє запитання
+    question2Div.style.display = 'none'; 
+    question3Div.style.display = 'block'; 
 }
 
 // Функція для обробки ФІНАЛЬНОЇ відповіді
@@ -26,15 +26,15 @@ function handleFinalResponse(response) {
     question2Div.style.display = 'none'; 
     question3Div.style.display = 'none'; 
     container.style.display = 'none'; 
-    resultDiv.style.display = 'block'; // Показуємо результат
+    resultDiv.style.display = 'block'; 
 
     if (response === 'yes') {
-        // Якщо відповідь веде до позитивного фіналу: рожевий фон та ❤️
+        // Якщо позитивний фінал: рожевий фон та ❤️
         body.style.backgroundColor = '#ffc0cb'; 
         finalEmoji.textContent = '❤️'; 
         finalEmoji.style.color = '#e30022'; 
     } else {
-        // Якщо відповідь веде до негативного фіналу: чорний фон та 💔
+        // Якщо негативний фінал: чорний фон та 💔
         body.style.backgroundColor = '#000000'; 
         finalEmoji.textContent = '💔'; 
         finalEmoji.style.color = 'white'; 
