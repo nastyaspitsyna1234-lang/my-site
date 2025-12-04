@@ -6,6 +6,7 @@ const question2Div = document.getElementById('question2');
 const question3Div = document.getElementById('question3');
 const resultDiv = document.getElementById('result');
 const finalEmoji = document.getElementById('final-emoji');
+const finalImage = document.getElementById('final-image'); // НОВА ЗМІННА ДЛЯ ФОТО
 
 // Функція для переходу до другого запитання
 function showQuestion2() {
@@ -27,16 +28,25 @@ function handleFinalResponse(response) {
     question3Div.style.display = 'none'; 
     container.style.display = 'none'; 
     resultDiv.style.display = 'block'; 
+    
+    // Скидаємо відображення зображення
+    finalImage.style.display = 'none';
 
     if (response === 'yes') {
         // Якщо позитивний фінал: рожевий фон та ❤️
         body.style.backgroundColor = '#ffc0cb'; 
         finalEmoji.textContent = '❤️'; 
         finalEmoji.style.color = '#e30022'; 
+        
+        // ВІДОБРАЖЕННЯ ФОТО: ВИКОРИСТОВУЄМО ВАШУ НАЗВУ ФАЙЛУ
+        finalImage.src = 'IMG_4907.jpg';
+        finalImage.style.display = 'block';
+
     } else {
         // Якщо негативний фінал: чорний фон та 💔
         body.style.backgroundColor = '#000000'; 
         finalEmoji.textContent = '💔'; 
         finalEmoji.style.color = 'white'; 
+        // Фото не відображається
     }
 }
