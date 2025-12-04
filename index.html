@@ -2,68 +2,85 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Питання для тебе ❤️</title>
     <style>
+        /* CSS стилі */
         body {
-            background: #2ecc71;
             font-family: sans-serif;
-            margin: 20px;
-            color: #fff;
-            max-width: 700px;
-            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0; /* Початковий сірий фон */
+            transition: background-color 0.8s ease; /* Плавна зміна фону */
+            text-align: center;
         }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-width: 90%;
+            width: 500px;
+        }
+
         .question {
-            background: rgba(0,0,0,0.2);
-            padding: 15px;
-            border-radius: 10px;
-            margin: 20px 0;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            font-weight: bold;
         }
-        img {
-            max-width: 100%;
-            border-radius: 10px;
-            margin-top: 10px;
+
+        .options button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s;
         }
-        .option { margin-left: 20px; }
+
+        .options button:hover {
+            opacity: 0.8;
+        }
+
+        #mood-options button {
+            background-color: #a4e5ee; /* Блакитний для настрою */
+        }
+
+        #date-options button {
+            background-color: #ff99e6; /* Рожевий для зустрічі */
+        }
     </style>
 </head>
 <body>
+    <div class="container">
+        <div id="question1">
+            <p class="question">Привіт, сонечко! Як твій настрій сьогодні?)</p>
+            <div id="mood-options" class="options">
+                <button onclick="showQuestion2()">намана</button>
+                <button onclick="showQuestion2()">нинаю</button>
+                <button onclick="showQuestion2()">супер-пупер</button>
+            </div>
+        </div>
 
-<h1 id="title"></h1>
-<div id="content"></div>
+        <div id="question2" style="display: none;">
+            <p class="question">Чи хотіли б ви сьогодні о 15:00 зустрітись за адресою Матроса кішки 40 для перегляду нашого улюбленого серіалу, під стаканчик прохолодної кока-коли та піцулечку пепероні?</p>
+            <div id="date-options" class="options">
+                <button onclick="handleResponse('yes')">так</button>
+                <button onclick="handleResponse('no')">ні:(</button>
+            </div>
+        </div>
 
-<script src="script.js"></script>
-<script>
-    const data = readFromURL();
+        <div id="result" style="display: none;">
+            <p id="final-emoji" style="font-size: 5em; margin: 0;"></p>
+        </div>
+    </div>
 
-    document.getElementById("title").innerText = data.title;
-
-    const container = document.getElementById("content");
-
-    data.questions.forEach((q, i) => {
-        const block = document.createElement("div");
-        block.className = "question";
-
-        // заголовок питання
-        block.innerHTML = `<h3>${i+1}. ${q.text}</h3>`;
-
-        // фото
-        if (q.photo) {
-            const imgEl = document.createElement("img");
-            imgEl.src = q.photo;
-            block.appendChild(imgEl);
-        }
-
-        // варіанти відповідей
-        q.options.forEach(opt => {
-            const div = document.createElement("div");
-            div.className = "option";
-            div.innerText = "• " + opt;
-            block.appendChild(div);
-        });
-
-        container.appendChild(block);
-    });
-</script>
-
+    <script src="script.js"></script> 
 </body>
 </html>
